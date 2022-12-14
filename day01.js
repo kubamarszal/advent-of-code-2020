@@ -14,15 +14,18 @@ const main = () => {
             obj[item] = true;
     });
 
+    let t = true;
     array.forEach(item => {
         const diff = sum - item;
-        if(obj[diff])
+        if(obj[diff] && t) {
             console.log(`Two numbers: ${item} ${diff}, multiplied: ${item*diff}`);
+            t = false;
+        }
     })
 
     let left = 0;
     let right = array.length - 1;
-    let t = true;
+    t = true;
 
     while(t) {
         const l = array[left];
@@ -31,8 +34,7 @@ const main = () => {
         const x = obj[diff];
 
         if(x) {
-            console.log('hey ', l, diff, r);
-            console.log('multiplied ', + l*diff*r);
+            console.log(`Three numbers: ${l} ${r} ${diff}, multiplied: ${l*r*diff}`);
             t = false;
         }
         else {
